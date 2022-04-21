@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import StoreKit
 
 class QuoteTableViewController: UITableViewController {
+    
+    let productID = ""
     
     var quotesToShow = [
         "Our greatest glory is not in never falling, but in rising every time we fall. — Confucius",
@@ -60,17 +63,29 @@ class QuoteTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row == quotesToShow.count {
-//            buyPremiumQuotes()
-//        }
-//        
-//        tableView.deselectRow(at: indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == quotesToShow.count {
+            buyPremiumQuotes()
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - In-App Purchase Methods
     
     func buyPremiumQuotes() {
+       if SKPaymentQueue.canMakePayments() {
+            // can make payments
+            
+           let paymentRequest = SKMutablePayment()
+            paymentRequest.productIdentifier = productID
+            SKPaymentQueue.default().add(paymentRequest)
+            
+            
+        } else{
+            // can't make payments
+            print ("user can't make payments")
+        }
         
     }
     
