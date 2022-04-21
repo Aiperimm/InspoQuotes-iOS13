@@ -58,15 +58,14 @@ class QuoteTableViewController: UITableViewController {
         return cell
     }
     
-
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == quotesToShow.count {
-            buyPremiumQuotes()
-        }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if indexPath.row == quotesToShow.count {
+//            buyPremiumQuotes()
+//        }
+//        
+//        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - In-App Purchase Methods
@@ -74,7 +73,6 @@ class QuoteTableViewController: UITableViewController {
     func buyPremiumQuotes() {
         
     }
-    
     
     @IBAction func restorePressed(_ sender: UIBarButtonItem) {
         
